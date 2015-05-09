@@ -21,3 +21,8 @@ Test
 `make test` runs the project's built-in unit test framework.  This
 consists of one test that tests the edge cases given in the
 challenge writeup.
+
+Cleanup
+===============
+`make clean` removes the virtualenv `env` directory and all python
+object files.
