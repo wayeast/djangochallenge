@@ -1,4 +1,7 @@
+import datetime
+
 from flask import render_template, request
+
 from a2r_app import app
 from a2r_app import forms
 from a2r_app import Arabic2Roman
@@ -10,6 +13,8 @@ def a2r_convert():
     a2r = None
     fm = forms.A2RInputForm(formdata=request.form)
     if fm.validate_on_submit():
+        app.logger.info("[{}] Processing submitted data: {}".format(
+            str(datetime.datetime.now()), fm.num.data))
         a2r = Arabic2Roman(fm.num.data)
     return render_template('a2r_main.html',
                            title='Convert Arabic to Roman',
