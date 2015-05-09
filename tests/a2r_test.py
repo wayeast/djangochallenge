@@ -5,7 +5,7 @@ import unittest
 base_appdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if base_appdir not in sys.path:
     sys.path.append(base_appdir)
-import a2r_app
+import a2r_app       # noqa
 
 
 class A2RTestCase(unittest.TestCase):
@@ -19,7 +19,7 @@ class A2RTestCase(unittest.TestCase):
             payload = {'num': number}
             rv = self.app.post('/arabic2roman', data=payload)
             assert benchmarks[number] in rv.data
-        
+
 
 benchmarks = {
     6: 'VI',
@@ -40,4 +40,3 @@ benchmarks = {
 
 if __name__ == "__main__":
     unittest.main()
-    

@@ -18,7 +18,7 @@ def a2r_convert():
 
 
 #############################################################
-#####     Auxiliary structures and functions     ############
+#             Auxiliary structures and functions            #
 #############################################################
 directions = 'Enter a number <i>i</i> such that 1 <= <i>i</i> <= 3999.'
 
