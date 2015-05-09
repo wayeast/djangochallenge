@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>Convert Arabic numerals to Roman numerals:</h1>
+
+    <form method="post" action="{{ url_for('a2r_convert') }}" >
+      {{ form.csrf_token }}
+
+      <p>{{ dirs | safe }}</p>
+      <p>
+	Number: {{ form.num }}
+	<input type="submit" value="Convert">
+      </p>
+      
+    </form>
+    
+    <p>As Roman numeral: {{ rn | safe }}</p>
+    
+  </body>
+</html>
