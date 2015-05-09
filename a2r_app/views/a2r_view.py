@@ -1,5 +1,3 @@
-import datetime
-
 from flask import render_template, request
 
 from a2r_app import app
