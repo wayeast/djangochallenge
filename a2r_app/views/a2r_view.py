@@ -13,8 +13,7 @@ def a2r_convert():
     a2r = None
     fm = forms.A2RInputForm(formdata=request.form)
     if fm.validate_on_submit():
-        app.logger.info("[{}] Processing submitted data: {}".format(
-            str(datetime.datetime.now()), fm.num.data))
+        app.logger.info("Processing submitted data: {}".format(fm.num.data))
         a2r = Arabic2Roman(fm.num.data)
     return render_template('a2r_main.html',
                            title='Convert Arabic to Roman',
