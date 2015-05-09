@@ -5,8 +5,6 @@ from logging import FileHandler
 
 from flask import Flask
 
-from a2r_number import Arabic2Roman
-
 app = Flask('a2r_app')
 app.config.from_object('config')
 
@@ -19,4 +17,5 @@ handler.setFormatter(formatter)
 app.logger.setLevel(logging.INFO)
 app.logger.addHandler(handler)
 
+from a2r_number import Arabic2Roman
 from a2r_app import views

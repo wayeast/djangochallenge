@@ -1,3 +1,6 @@
+from a2r_app import app
+
+
 class Arabic2Roman(object):
     def __init__(self, num):
         self._baseten = num
@@ -26,7 +29,11 @@ edges = {'CCCC': 'CD',
 
 def convert(baseten_num):
     magnitudes = get_magnitudes_as_dict(baseten_num)
+    app.logger.debug("Base ten {} yields magnitudes {}".format(
+        baseten_num, str(magnitudes)))
     romnum = get_numeral_from_magnitudes(magnitudes)
+    app.logger.debug("Magnitudes {} yields RN {}".format(
+        str(magnitudes), romnum))
     return romnum
 
 
