@@ -1,19 +1,26 @@
 [![Build Status](https://travis-ci.org/wayeast/djangochallenge.svg?branch=master)](https://travis-ci.org/wayeast/djangochallenge)
+A web service that takes a base-ten number between 1 and 3999 as
+form input data and displays it as a Roman numeral.  Uses a Gunicorn
+web server in front of a Flask WSGI app.
+
 Installation
 ===============
-This project depends upon the virtualenv package
-(`python-virtualenv` on Ubuntu).
+System requirements
+--------------------
+This project requires the virtualenv package
+(`python-virtualenv` on Ubuntu) to create an isolated
+environment for the project.
 
 Clone repo and `cd djangochallenge`.
 
 Build
 ===============
 `make cheeseshop` creates a virtual environment in a directory
-`env` as well as a `log` directory.
+`env` as well as a `log` directory in the project root.
 
 Run
 ===============
-`make run` starts a web server running on the local machine.
+`make run` starts a Gunicorn web server running on the local machine.
 Point your browser to "localhost:8000" or "localhost:8000/arabic2roman"
 to access the converter.
 
@@ -21,7 +28,8 @@ Test
 ===============
 `make test` runs the project's built-in unit test framework.  This
 consists of one test that tests the edge cases given in the
-challenge writeup.
+challenge writeup.  Note that this tests the logic of the Flask
+routines, not the health of the Gunicorn -> Flask stack.
 
 Cleanup
 ===============
