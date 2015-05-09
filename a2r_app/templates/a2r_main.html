@@ -8,12 +8,13 @@
     <form method="post" action="{{ url_for('a2r_convert') }}" >
       {{ form.csrf_token }}
 
-      <p>{{ dirs | safe }}</p>
+      {% autoescape false %}
+      <p>Enter a number <i>i</i> such that 1 &le <i>i</i> &le 3999.</p>
+      {% endautoescape %}
       <p>
 	Number: {{ form.num }}
 	<input type="submit" value="Convert">
       </p>
-      
     </form>
     
     <p>As Roman numeral: {{ rn | safe }}</p>

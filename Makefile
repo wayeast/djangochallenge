@@ -1,5 +1,5 @@
-PYTHON=./env/bin/python
 PIP=./env/bin/pip
+PYTHON=./env/bin/python
 VENV=./env/bin/activate
 
 
@@ -16,6 +16,7 @@ cheeseshop:
 		virtualenv env ; \
 		. $(VENV) ; \
 		$(PIP) install -r requirements.txt ; \
+		deactivate ; \
 	fi
 
 clean:
@@ -26,8 +27,10 @@ clean:
 
 run: cheeseshop
 	. $(VENV) && \
-	$(PYTHON) -c "from a2r_app import app; app.run(debug=False)"
+	$(PYTHON) -c "from a2r_app import app; app.run(debug=False)" && \
+	deactivate
 
 test: cheeseshop
 	. $(VENV) && \
-	$(PYTHON) tests/a2r_test.py
+	$(PYTHON) tests/a2r_test.py && \
+	deactivate
