@@ -9,12 +9,12 @@ Clone repo and `cd djangochallenge`.
 Build
 ===============
 `make cheeseshop` creates a virtual environment in a directory
-`env`.
+`env` as well as a `log` directory.
 
 Run
 ===============
 `make run` starts a web server running on the local machine.
-Point your browser to "localhost:5000" or "localhost:5000/arabic2roman"
+Point your browser to "localhost:8000" or "localhost:8000/arabic2roman"
 to access the converter.
 
 Test
@@ -25,5 +25,5 @@ challenge writeup.
 
 Cleanup
 ===============
-`make clean` removes the virtualenv `env` directory and all python
-object files.
+`make clean` removes the virtualenv `env` and `log` directories as well
+as all Python object files.

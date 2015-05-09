@@ -1,3 +1,4 @@
+GUNICORN=./env/bin/gunicorn
 PIP=./env/bin/pip
 PYTHON=./env/bin/python
 VENV=./env/bin/activate
@@ -18,16 +19,21 @@ cheeseshop:
 		$(PIP) install -r requirements.txt ; \
 		deactivate ; \
 	fi
+	if [ ! -d ./log ] ; then \
+		mkdir log ; \
+	fi
 
 clean:
 	if [ -d ./env ] ; then \
 		rm -rf env ; \
 	fi
+	rm -rf log
 	find . -name *.pyc -delete
 
 run: cheeseshop
 	. $(VENV) && \
-	$(PYTHON) -c "from a2r_app import app; app.run(debug=False)" && \
+	echo Starting server... && \
+	$(GUNICORN) -c gunicorn.py a2r_app:app && \
 	deactivate
 
 test: cheeseshop
