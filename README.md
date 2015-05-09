@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/wayeast/djangochallenge.svg?branch=master)](https://travis-ci.org/wayeast/djangochallenge)
 Installation
 ===============
 This project depends upon the virtualenv package
