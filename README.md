@@ -3,7 +3,7 @@ Installation
 This project depends upon the virtualenv package
 (`python-virtualenv` on Ubuntu).
 
-Unpack tarball and `cd djangochallenge`.
+Clone repo and `cd djangochallenge`.
 
 Build
 ===============
