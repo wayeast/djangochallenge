@@ -20,6 +20,12 @@ class A2RTestCase(unittest.TestCase):
             rv = self.app.post('/arabic2roman', data=payload)
             assert benchmarks[number] in rv.data
 
+    def test_invalids(self):
+        for number in invalids:
+            payload = {'num': number}
+            rv = self.app.post('/arabic2roman', data=payload)
+            assert 'Valid input required...' in rv.data
+            
 
 benchmarks = {
     6: 'VI',
@@ -36,6 +42,9 @@ benchmarks = {
     1998: 'MCMXCVIII',
     3999: 'MMMCMXCIX',
 }
+
+
+invalids = [-10, 0, 4000, 2.3]
 
 
 if __name__ == "__main__":
