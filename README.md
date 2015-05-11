@@ -1,7 +1,13 @@
 [![Build Status](https://travis-ci.org/wayeast/djangochallenge.svg?branch=master)](https://travis-ci.org/wayeast/djangochallenge)
+
 A web service that takes a base-ten number between 1 and 3999 as
 form input data and displays it as a Roman numeral.  Uses a Gunicorn
-web server in front of a Flask WSGI app.
+web server in front of a Flask WSGI app.  By way of explanation for
+why a project entitled 'Djangochallenge' does not use Django, Django
+is a web app framework for building apps that run on top of
+relational databases.  This project is a web app, but does not
+require a database backend.  Hence, Flask is perfectly suitable for
+it.
 
 Installation
 ===============
