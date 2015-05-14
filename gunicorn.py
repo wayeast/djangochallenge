@@ -6,7 +6,7 @@ workers = multiprocessing.cpu_count() * 2 + 1
 backlog = 2048
 proc_name = 'a2r_gunicorn'
 
-logdir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'log')
+logdir = '/var/log/a2r'
 errorlog = os.path.join(logdir, 'gunicorn_error.log')
 accesslog = os.path.join(logdir, 'gunicorn_access.log')
 loglevel = "info"
