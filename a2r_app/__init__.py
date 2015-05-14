@@ -9,7 +9,7 @@ app = Flask('a2r_app')
 app.config.from_object('config')
 
 # set app logging
-logdir = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'log')
+logdir = '/var/log/a2r'
 handler = FileHandler(os.path.join(logdir, 'a2r_app.log'), mode='w')
 handler.setLevel(logging.INFO)
 formatter = logging.Formatter('[%(asctime)s - %(levelname)s] %(name)s: %(message)s')
