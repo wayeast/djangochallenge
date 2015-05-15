@@ -1,0 +1,22 @@
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>Convert Arabic numerals to Roman numerals:</h1>
+    {% autoescape off %}
+    <p>Enter a number <i>i</i> such that 1 <= <i>i</i> <= 3999.</p>
+    {% endautoescape %}
+
+    <form method="post" action="{% url 'a2r_convert' %}" >
+      {% csrf_token %}
+      <label for="Input">Number:</label>
+      <input id="Input" type="number" min="1" max="3999"
+	     name="num" value="{{ num }}">
+      <input type="submit" value="Convert">
+    </form>
+
+    <p>As Roman numeral: {{ rn | safe }}</p>
+
+  </body>
+</html>

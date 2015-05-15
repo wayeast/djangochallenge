@@ -120,3 +120,32 @@ EDGE_CASES = {'CCCC': 'CD',
               'IIII': 'IV',
               'IVI': 'V',
               'VIIII': 'IX'}
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'verbose': {
+            'format': '[%(levelname)s] %(asctime)s %(module)s:%(funcName)s - %(message)s'
+        },
+    },
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(BASE_DIR, 'log', 'a2r.log'),
+            'formatter': 'verbose',
+        },
+    },
+    'loggers': {
+        'django': {
+            'handlers': ['file'],
+            'propagate': True,
+            'level': 'INFO',
+        },
+        'a2r_app': {
+            'handlers': ['file'],
+            'level': 'DEBUG' if DEBUG else 'INFO',
+        },
+    },
+}
