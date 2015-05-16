@@ -31,6 +31,7 @@ def convert(num):
     logger.debug("{} yields numeral {}".format(num, romnum))
     return romnum
 
+
 def get_magnitudes_as_dict(num):
     magnitudes = dict()
     for v in PurePower.objects.values().order_by('-power'):

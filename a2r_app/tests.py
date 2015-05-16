@@ -24,7 +24,7 @@ class A2RTestCase(TestCase):
         for key in invalids:
             resp = self.client.post(self.url, {'num': key})
             self.assertIn('Please enter a valid number', resp.content)
-            
+
 
 benchmarks = {
     6: 'VI',

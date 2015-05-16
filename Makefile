@@ -1,6 +1,8 @@
+DEBUG_SET=--settings=arabic2roman.settings.debug
 DJ_PY=python manage.py
 GUNICORN=gunicorn
 PIP=pip
+BASE_SET=--settings=arabic2roman.settings.base
 VENV=. env/bin/activate
 
 
@@ -8,6 +10,7 @@ VENV=. env/bin/activate
 	cheeseshop \
 	clean \
 	run \
+	run_debug \
 	test
 
 all: run
@@ -23,7 +26,7 @@ cheeseshop:
 		mkdir log ; \
 	fi
 	$(VENV) && \
-	$(DJ_PY) migrate && \
+	$(DJ_PY) migrate $(BASE_SET) && \
 	deactivate
 
 clean:
@@ -44,7 +47,13 @@ run: cheeseshop
 	$(GUNICORN) -c gunicorn_conf.py arabic2roman.wsgi && \
 	deactivate
 
+run_debug: cheeseshop
+	$(VENV) && \
+	echo Starting debug server... && \
+	$(DJ_PY) runserver $(DEBUG_SET) && \
+	deactivate
+
 test: cheeseshop
 	$(VENV) && \
-	$(DJ_PY) test && \
+	$(DJ_PY) test $(BASE_SET) && \
 	deactivate

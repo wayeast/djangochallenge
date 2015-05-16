@@ -13,7 +13,10 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.dirname(
+            os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,9 +26,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '_+vr)i80$+%xr0&t($!bnv3$-(l4vwcyhw+y=9n-!36koh=sh@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+]
 
 
 # Application definition
@@ -126,7 +132,7 @@ LOGGING = {
     'disable_existing_loggers': False,
     'formatters': {
         'verbose': {
-            'format': '[%(levelname)s] %(asctime)s %(module)s:%(funcName)s - %(message)s'
+            'format': '[%(levelname)s] %(asctime)s %(module)s:%(funcName)s - %(message)s'  # noqa
         },
     },
     'handlers': {
@@ -145,7 +151,7 @@ LOGGING = {
         },
         'a2r_app': {
             'handlers': ['file'],
-            'level': 'DEBUG' if DEBUG else 'INFO',
+            'level': 'INFO',
         },
     },
 }

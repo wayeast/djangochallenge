@@ -1,6 +1,5 @@
 from django.db import models
 
-# Create your models here.
 
 class PurePower(models.Model):
     power = models.IntegerField(primary_key=True)
