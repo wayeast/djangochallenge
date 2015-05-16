@@ -10,4 +10,4 @@ install:
 before_script:
   - mkdir ./log
 script:
-  - python manage.py test
+  - python manage.py test --settings=arabic2roman.settings.base
