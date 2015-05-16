@@ -20,6 +20,11 @@ class A2RTestCase(TestCase):
             self.assertEqual(resp.status_code, 200)
             self.assertIn(value, resp.content)
 
+    def test_invalids(self):
+        for key in invalids:
+            resp = self.client.post(self.url, {'num': key})
+            self.assertIn('Please enter a valid number', resp.content)
+            
 
 benchmarks = {
     6: 'VI',
@@ -36,3 +41,6 @@ benchmarks = {
     1998: 'MCMXCVIII',
     3999: 'MMMCMXCIX',
 }
+
+
+invalids = [-10, 0, 4000]

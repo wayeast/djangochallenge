@@ -7,7 +7,7 @@ from a2r_app.models import PurePower, EdgeCase
 
 
 def a2r_convert(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and doublecheck_valid(request.POST['num']):
         num = int(request.POST['num'])
         rn = convert(num)
     else:
@@ -17,6 +17,11 @@ def a2r_convert(request):
                'num': num,
                'rn': rn}
     return render(request, 'a2r_app/main.html', context)
+
+
+def doublecheck_valid(num):
+    num = int(num)
+    return num >= 1 and num <= 3999
 
 
 def convert(num):

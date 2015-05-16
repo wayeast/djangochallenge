@@ -1,3 +1,7 @@
+DjangoChallenge
+===============
+[![Build Status](https://travis-ci.org/wayeast/djangochallenge.svg?branch=to-django)](https://travis-ci.org/wayeast/djangochallenge)
+
 Installation
 ============
 System Requirements
